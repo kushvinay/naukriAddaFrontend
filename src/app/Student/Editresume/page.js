@@ -100,7 +100,18 @@ console.log(`education ${student?.resume?.education?.length}`);
           {/* <p className="text-gray-500 text-sm pb-1">{student.city} </p> */}
         </div>
         <div>
-          <Image src={student.avatar.url} height={100} width={100} />
+        {student?.avatar?.url ? (
+            <Image
+              src={student.avatar.url}
+              height={100}
+              width={100}
+              alt="Profile Avatar"
+            />
+          ) : (
+            <div className="bg-gray-300 w-24 h-24 flex items-center justify-center">
+              <span>No Image</span>
+            </div>
+          )}
         </div>
       </div>
 

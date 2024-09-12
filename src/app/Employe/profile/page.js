@@ -1,102 +1,115 @@
+
 "use client";
 import Image from "next/image";
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-
-import { asynUpdateOrganisationlogo } from "@/Store/Actions/EmployeAction";
+import { asyncCurrentEmploye, asynUpdateOrganisationlogo } from "@/Store/Actions/EmployeAction";
 
 const Profile = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
   let { isAuthenticated, employe } = useSelector((state) => state.EmployeSlice);
-  // useEffect(() => {
-  //   if(!isAuthenticated) dispatch(asyncCurrentUser())
-  //   .then(() => {
-  //   })
-  //   .catch((error) => {
-  //     console.error('Authentication error:', error);
-  //     router.push('/Studentlogin');
-  //   });
-  // }, [isAuthenticated]);
-  // const jobnumber = employe.jobs.lenght ; 
-  // console.log(jobnumber)
+
+  useEffect(() => {
+    if (!isAuthenticated)
+      dispatch(asyncCurrentEmploye())
+        .then(() => {})
+        .catch((error) => {
+          console.error("Authentication error:", error);
+          router.push("/Employesignin");
+        });
+  }, [isAuthenticated]);
+
   const Acticeinput = (e) => {
     e.preventDefault();
-    const logoinp = document.getElementById('logoinp');
+    const logoinp = document.getElementById("logoinp");
     logoinp.click();
-  }
+  };
+
   const UploadAvatar = (e) => {
     e.preventDefault();
     const formdata = new FormData(e.target);
-    console.log(e.target.organisationlogo.files[0]);
     formdata.set("organisationlogo", e.target.organisationlogo.files[0]);
-    console.log(formdata);
     dispatch(asynUpdateOrganisationlogo(formdata));
   };
+
   return (
-    <div className="py-10 ">
-      <div className="w-[900px] m-auto border-[1px] border-inherit bg-slate-200 rounded-lg">
-        <h1 className="text-3xl text-center py-5  font-medium text-gray-700 ">
+    <div className="py-10 px-4 pt-28 md:px-6 lg:px-8 ">
+      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg border border-gray-300 p-6">
+        <h1 className="text-2xl md:text-3xl text-center py-5 font-medium text-gray-700">
           Profile
         </h1>
+
         {employe && (
-          <Image
-            className="m-auto rounded-sm"
-            src={employe.organisationlogo.url}
-            height={140}
-            width={140}
-            alt="Profile Pic"
-            onClick={Acticeinput}
-          ></Image>
-        )}
-        <form className="m-auto w-full flex items-center justify-center " onSubmit={UploadAvatar} encType="multipart/form-data">
-          <input className="hidden" type="file" name="organisationlogo" id="logoinp" />
-          <button className=" border border-black bg-gray-800 text-white px-2 rounded-sm mt-1" type="Submit">Update</button>
-        </form>
-        {employe && (
-          <h1 className="text-center text-2xl text-gray-800 ">
-            {employe.fullname}{" "}
-          </h1>
-        )}
-        {employe && 
-        <h4>Company: {employe.organisationname}</h4>
-        }
-        {employe && 
-        <p>Internship Post: {}{} Job Post: {employe.jobs.lenght}</p>
-        }
-      {/* {employe &&
-      <div className="pt-3 overflow-x-scroll ">
-        <h2 className="text-3xl text-gray-800 text-center border-t-[1px] py-3">Applyed Jobs</h2>
-        {employe.internships.length === 0 ? <h3 className="text-xl text-gray-500 m-auto py-2"> You have not applyed for any job yet!</h3>
-        : <div className="flex  px-4 ">
-        {employe && 
-        employe.jobs.map((job) => (
-          <div className="px-2 pb-3">
-            <Card  key={job._id} data={job}/>
+          <div className="flex flex-col items-center">
+            <Image
+              className="rounded-full cursor-pointer"
+              src={employe.organisationlogo?.url || "/default-avatar.png"}
+              height={140}
+              width={140}
+              alt="Organisation Logo"
+              onClick={Acticeinput}
+            />
+            <form
+              className="mt-4 flex flex-col items-center"
+              onSubmit={UploadAvatar}
+              encType="multipart/form-data"
+            >
+              <input
+                className="hidden"
+                type="file"
+                name="organisationlogo"
+                id="logoinp"
+              />
+              <button
+                className="border bg-blue-600 text-white px-4 py-2 rounded-md mt-2"
+                type="Submit"
+              >
+                Update Logo
+              </button>
+            </form>
+
+            <h1 className="text-xl md:text-2xl font-semibold text-center mt-4">
+              {employe.fullname}
+            </h1>
+            <h4 className="text-lg text-gray-600 mt-2">
+              Company: {employe.organisationname}
+            </h4>
+            <p className="text-sm md:text-base text-gray-500 mt-2">
+              Internship Post: {employe.internships?.length || 0} | Job Post: {employe.jobs?.length || 0}
+            </p>
           </div>
-        ))
-        }
-      </div>
-        }
-      </div>}
-      {employe &&
-      <div className="pt-5  overflow-x-scroll ">
-        <h2 className="text-3xl text-gray-700 text-center py-3 border-t-[1px]">Applyed Internships</h2>
-        {employe.internships.length === 0 ? <h3 className="text-xl text-gray-500 text-center py-3"> You have not applyed for any Internship yet</h3>
-        : <div className="flex  px-4 ">
-        {employe && 
-        employe.internships.map((internship) => (
-          <div className="px-2 pb-3">
-            <Card  key={internship._id} data={internship}/>
+        )}
+
+        {/* Jobs Section (Optional) */}
+        {/* Uncomment if needed
+        {employe && employe.jobs?.length > 0 && (
+          <div className="mt-10">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-700 text-center border-t border-gray-300 pt-4">
+              Applied Jobs
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4">
+              {employe.jobs.map((job) => (
+                <Card key={job._id} data={job} />
+              ))}
+            </div>
           </div>
-        ))
-        }
-      </div>
-        }
-      </div>} */}
+        )}
+
+        {employe && employe.internships?.length > 0 && (
+          <div className="mt-10">
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-700 text-center border-t border-gray-300 pt-4">
+              Applied Internships
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-4">
+              {employe.internships.map((internship) => (
+                <Card key={internship._id} data={internship} />
+              ))}
+            </div>
+          </div>
+        )} */}
       </div>
     </div>
   );

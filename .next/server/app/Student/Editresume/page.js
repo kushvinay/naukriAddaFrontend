@@ -1739,6 +1739,7 @@ var TrashIcon = __webpack_require__(34635);
 const EditResume = ()=>{
     const dispatch = (0,lib.useDispatch)();
     const { isAuthenticated, student } = (0,lib.useSelector)((state)=>state.StudentSlice);
+    let [isMounted, setIsMounted] = (0,react_.useState)(false);
     let [showeducation, setshoweducation] = (0,react_.useState)(false);
     let [addsecondaryedu, setaddsecondaryedu] = (0,react_.useState)(false);
     let [addsensecondaryedu, setaddsensecondaryedu] = (0,react_.useState)(false);
@@ -1750,19 +1751,22 @@ const EditResume = ()=>{
     let [addproject, setaddproject] = (0,react_.useState)(false);
     let [addskill, setaddskill] = (0,react_.useState)(false);
     let [addaditional, setaddaditional] = (0,react_.useState)(false);
+    (0,react_.useEffect)(()=>{
+        setIsMounted(true);
+    }, []);
+    // Conditional rendering after isMounted is true
+    if (!isMounted) {
+        return null;
+    }
     // const graduationedu = student.resume.education.filter((edu) => edu.type === "Graduation")
     // let isgradutionEmpty = Object.keys(student?.resume?.education).length === 0;
     // console.log(`education${student?.resume?.education?.length}`);
+    // Ensure student and student.resume exist before checking education
     let isgradutionEmpty = !student?.resume?.education || Object.keys(student?.resume?.education).length === 0;
-    console.log(`education ${student?.resume?.education?.length}`);
     let graedu = null;
     let senedu = null;
     let higedu = null;
-    // if (student.resume.education.length != 0) {
-    //   graedu = student?.resume?.education?.find((edu) => edu.type == "Graduation");
-    //   senedu = student?.resume?.education?.find((edu) => edu.type == "Seneducation");
-    //   higedu = student?.resume?.education?.find((edu) => edu.type == "Higher");
-    // }
+    // Ensure student and student.resume exist before finding education types
     if (student?.resume?.education?.length > 0) {
         graedu = student.resume.education.find((edu)=>edu.type === "Graduation");
         senedu = student.resume.education.find((edu)=>edu.type === "Seneducation");
@@ -1807,30 +1811,32 @@ const EditResume = ()=>{
                         children: [
                             /*#__PURE__*/ jsx_runtime_.jsx("h3", {
                                 className: "text-2xl font-semibold pb-1 ",
-                                children: student.fullname
+                                children: student ? student.fullname : "Full Name"
+                            }),
+                            /*#__PURE__*/ jsx_runtime_.jsx("h4", {
+                                className: "text-gray-500 text-sm pb-1",
+                                children: student ? student.email : "Email not available"
                             }),
                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h4", {
                                 className: "text-gray-500 text-sm pb-1",
                                 children: [
-                                    student.email,
-                                    " "
-                                ]
-                            }),
-                            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("h4", {
-                                className: "text-gray-500 text-sm pb-1",
-                                children: [
-                                    "+91-",
-                                    student.contact,
+                                    student ? `+91-${student.contact}` : "Contact not available",
                                     " "
                                 ]
                             })
                         ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx("div", {
-                        children: /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
+                        children: student?.avatar?.url ? /*#__PURE__*/ jsx_runtime_.jsx((image_default()), {
                             src: student.avatar.url,
                             height: 100,
-                            width: 100
+                            width: 100,
+                            alt: "Profile Avatar"
+                        }) : /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                            className: "bg-gray-300 w-24 h-24 flex items-center justify-center",
+                            children: /*#__PURE__*/ jsx_runtime_.jsx("span", {
+                                children: "No Image"
+                            })
                         })
                     })
                 ]

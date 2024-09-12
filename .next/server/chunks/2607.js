@@ -61,7 +61,9 @@ const setStudent = ()=>async (dispatch, getState)=>{
     };
 const asyncRemoveEmploye = ()=>async (dispatch, getState)=>{
         try {
-            const response = await _axiosconfig__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.get("/employe/signout");
+            const response = await _axiosconfig__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.get("/employe/signout", {
+                withCredentials: true
+            });
             console.log(response);
             dispatch((0,_Slices_EmployeSlice__WEBPACK_IMPORTED_MODULE_3__/* .RemoveEmploye */ .oY)());
             return response.data;

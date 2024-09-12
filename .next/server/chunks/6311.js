@@ -164,7 +164,9 @@ const asynclogin = (student)=>async (dispatch, getState)=>{
 //   }
 const asynStudentlogout = ()=>async (dispatch, getState)=>{
         try {
-            const res = await _axiosconfig__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.get("/user/student/signout");
+            const res = await _axiosconfig__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.get("/user/student/signout", {
+                withCredentials: true
+            });
             console.log(res);
             dispatch((0,_Slices_StudentSlice__WEBPACK_IMPORTED_MODULE_1__/* .RemoveUser */ .ST)());
             return res?.data;

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Model from "@/components/model";
 import AddSecEdu from "@/app/components/AddSecEdu";
 import AddSenSecEdu from "@/app/components/AddSenSecEdu";
@@ -22,6 +22,9 @@ const EditResume = () => {
   const { isAuthenticated, student } = useSelector(
     (state) => state.StudentSlice
   );
+
+
+  let [isMounted, setIsMounted] = useState(false);
   let [showeducation, setshoweducation] = useState(false);
   let [addsecondaryedu, setaddsecondaryedu] = useState(false);
   let [addsensecondaryedu, setaddsensecondaryedu] = useState(false);
@@ -34,6 +37,15 @@ const EditResume = () => {
   let [addskill, setaddskill] = useState(false);
   let [addaditional, setaddaditional] = useState(false);
 
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Conditional rendering after isMounted is true
+  if (!isMounted) {
+    return null;
+  }
   // const graduationedu = student.resume.education.filter((edu) => edu.type === "Graduation")
 
   // let isgradutionEmpty = Object.keys(student?.resume?.education).length === 0;

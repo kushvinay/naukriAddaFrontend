@@ -92,10 +92,11 @@ console.log(`education ${student?.resume?.education?.length}`);
       <div className="w-full h-52 border-[1px] border-inherit px-16 py-7 flex justify-between">
         <div>
           <h3 className="text-2xl font-semibold pb-1 ">
-             {student && student.fullname}
+          {student ? student.fullname : "Full Name"}
           </h3>
-          <h4 className="text-gray-500 text-sm pb-1">{student.email} </h4>
-          <h4 className="text-gray-500 text-sm pb-1">+91-{student.contact} </h4>
+          <h4 className="text-gray-500 text-sm pb-1">{student ? student.email : "Email not available"}
+          </h4>
+          <h4 className="text-gray-500 text-sm pb-1">{student ? `+91-${student.contact}` : "Contact not available"} </h4>
           {/* <p className="text-gray-500 text-sm pb-1">{student.city} </p> */}
         </div>
         <div>

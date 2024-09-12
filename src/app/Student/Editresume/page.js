@@ -38,24 +38,20 @@ const EditResume = () => {
 
   // let isgradutionEmpty = Object.keys(student?.resume?.education).length === 0;
   // console.log(`education${student?.resume?.education?.length}`);
-  let isgradutionEmpty = !student?.resume?.education || Object.keys(student?.resume?.education).length === 0;
-console.log(`education ${student?.resume?.education?.length}`);
-  
+   // Ensure student and student.resume exist before checking education
+  let isgradutionEmpty =
+    !student?.resume?.education || Object.keys(student?.resume?.education).length === 0;
 
   let graedu = null;
   let senedu = null;
   let higedu = null;
-  // if (student.resume.education.length != 0) {
-  //   graedu = student?.resume?.education?.find((edu) => edu.type == "Graduation");
-  //   senedu = student?.resume?.education?.find((edu) => edu.type == "Seneducation");
-  //   higedu = student?.resume?.education?.find((edu) => edu.type == "Higher");
-  // }
+
+  // Ensure student and student.resume exist before finding education types
   if (student?.resume?.education?.length > 0) {
     graedu = student.resume.education.find((edu) => edu.type === "Graduation");
     senedu = student.resume.education.find((edu) => edu.type === "Seneducation");
     higedu = student.resume.education.find((edu) => edu.type === "Higher");
   }
-  
   console.log(graedu);
 
 

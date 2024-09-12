@@ -19,7 +19,9 @@ export const setStudent = () => async (dispatch, getState) => {
 
 export const asyncRemoveEmploye = () => async (dispatch, getState) => {
   try {
-    const response = await axios.get("/employe/signout");
+    const response = await axios.get("/employe/signout" ,{
+      withCredentials:true,
+    });
     console.log(response)
     dispatch(RemoveEmploye())
     return response.data

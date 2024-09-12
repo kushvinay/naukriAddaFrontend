@@ -27,11 +27,26 @@ const Studentnav = () => {
   };
 
   const Studentsignout = async () => {
-    const res = await dispatch(asynStudentlogout());
-    console.log(res);
+    try {
+      const res = await dispatch(asynStudentlogout());
+      if (res?.success) {
+        // Clear local storage, session storage, and cookies (if applicable)
+        localStorage.removeItem("Token"); // Assuming you store tokens in localStorage
+        sessionStorage.removeItem("Token");
+        
+        // Clear cookies using a method like cookies-next if used
+        // deleteCookie('authToken', { path: '/' });
 
-    if (res.success) {
-      router.push("/");
+        // Redirect to home or login page
+        router.push("/");
+
+        // Force reload to clear any lingering state
+        window.location.reload();
+      } else {
+        console.error("Logout failed: ", res);
+      }
+    } catch (error) {
+      console.error("An error occurred during logout: ", error);
     }
   };
 

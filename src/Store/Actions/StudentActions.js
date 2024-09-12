@@ -131,7 +131,11 @@ export const asynclogin = (student) => async (dispatch, getState) => {
 
 export const asynStudentlogout = () => async (dispatch, getState) => {
   try {
-    const res = await axios.get("/user/student/signout");
+
+    const res = await axios.get("/user/student/signout",  {
+      withCredentials:true
+      
+    });
     console.log(res)
     dispatch(RemoveUser())
     return res?.data

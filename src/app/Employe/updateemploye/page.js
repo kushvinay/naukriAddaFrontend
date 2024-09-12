@@ -21,7 +21,7 @@ const Updateemploye = () => {
     e.preventDefault();
     const employe = {};
     if (fullname.trim() !== '') {
-        employe.fullName = fullname;
+        employe.fullname = fullname;
     }
     
     if (email.trim() !== '') {

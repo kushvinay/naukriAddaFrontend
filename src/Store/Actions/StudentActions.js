@@ -129,16 +129,16 @@ export const asynclogin = (student) => async (dispatch, getState) => {
 //     dispatch(iserror(error.response.data.message));
 //   }
 
-export const asynStudentlogout = () => async (dispatch, getState) => {
+export const asynStudentlogout = (userData) => async (dispatch, getState) => {
   try {
 
     const res = await axios.get("/user/student/signout",  {
-      withCredentials:true
-      
+      withCredentials:true 
     });
-    console.log(res)
+    dispatch(SetUser(null));
     dispatch(RemoveUser())
-    return res?.data
+    localStorage.removeItem("token");
+    // return res?.userdata
   } catch (error) {
     // console.log(error);
     dispatch(iserror(error?.data?.message));

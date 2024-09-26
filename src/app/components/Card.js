@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,11 +8,17 @@ import {
   CalendarDaysIcon,
   CurrencyRupeeIcon,
 } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
+ 
+
 
 const Card = ({ key, data }) => {
-  console.log(`from card ${data}`);
+  const {  student } = useSelector(
+    (state) => state.StudentSlice
+  );
+
   return (
-    <Link href={`/Student/Jobs/${data?._id}`} className=" ">
+    <Link href={` ${ student == null ? "/Studentlogin" : `/Student/Jobs/${data?._id}` } `} className=" ">
       <div className=" w-[270px] text-start p-4  pb-7 rounded-2xl bg-white  border-gray-50 hover:border-gray-200  hover:shadow-md my-2">
         <div className="flex justify-between items-center border-b-[1px]">
           <div>

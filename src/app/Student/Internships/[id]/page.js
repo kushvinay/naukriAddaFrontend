@@ -18,7 +18,7 @@ const Page = ({ params }) => {
   const internship = internships.find((e) => ( params.id == e._id));
   console.log(internship.usersapplied)
   // let che = internship.usersapplied.include(student._id);
-  console.log(student._id)
+  // console.log(student._id)
   console.log(internship.usersapplied);
   let che = internship.usersapplied.includes(student._id)
   console.log(che)

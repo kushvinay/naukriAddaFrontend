@@ -45,7 +45,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const Responsive = ({ data }) => {
+const Responsive = ({ data, student }) => {
   const settings = {
     dots: true,
     infinite: false,
@@ -98,7 +98,7 @@ const Responsive = ({ data }) => {
 
       <Slider className="ps-3" {...settings}>
         {data.map((internship) => (
-          <Internshipcard key={internship._id} data={internship} />
+          <Internshipcard key={internship._id} data={internship} student={student} />
         ))}
       </Slider>
     </div>

@@ -30,6 +30,7 @@ const instance = axios__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.create({
 /* harmony export */   F5: () => (/* binding */ asynaddresponsibilitiesRes),
 /* harmony export */   FD: () => (/* binding */ asyncsignup),
 /* harmony export */   HF: () => (/* binding */ asynaddaccomplishmentsRes),
+/* harmony export */   K6: () => (/* binding */ setinternships),
 /* harmony export */   L$: () => (/* binding */ asyncCurrentUserwithall),
 /* harmony export */   Ln: () => (/* binding */ asynaddprojectsRes),
 /* harmony export */   MH: () => (/* binding */ asynapply),
@@ -56,7 +57,7 @@ const instance = axios__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.create({
 /* harmony export */   vs: () => (/* binding */ asynaddskillsRes),
 /* harmony export */   yR: () => (/* binding */ asynUpdateAvatar)
 /* harmony export */ });
-/* unused harmony exports setStudent, setinternships */
+/* unused harmony export setStudent */
 /* harmony import */ var _axiosconfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21330);
 /* harmony import */ var _Slices_StudentSlice__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(793);
 /* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34751);

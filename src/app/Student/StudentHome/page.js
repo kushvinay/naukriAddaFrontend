@@ -66,7 +66,9 @@ const Page = () => {
 
       <div className="w-full max-w-[95%] md:max-w-[1150px] mx-auto">
         <Responsivejob data={Jobs} />
+
       </div>
+      
     </div>
   );
 };

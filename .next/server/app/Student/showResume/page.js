@@ -897,41 +897,6 @@ var StudentActions = __webpack_require__(76311);
 // EXTERNAL MODULE: ./node_modules/next/navigation.js
 var navigation = __webpack_require__(57114);
 ;// CONCATENATED MODULE: ./src/app/Student/showResume/page.js
-// "use client";
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import StudentResume from "@/app/components/StudentResume"
-// import {
-//   asyncCurrentUser,
-// } from "@/Store/Actions/StudentActions";
-// import { useRouter } from "next/navigation";
-// import { jsPDF } from "jspdf";
-// import html2canvas from "html2canvas";
-// const showResume = ({ params }) => {
-//   const dispatch = useDispatch();
-//   const router = useRouter();
-//   const [resume, setresume] = useState();
-//   const { isAuthenticated, student } = useSelector(
-//     (state) => state.StudentSlice
-//   );
-//   useEffect(() => {
-//     if (!isAuthenticated) {
-//       dispatch(asyncCurrentUser());
-//     }
-//     if(student?.resume){
-//     setresume(student)
-//   }
-//     if (!isAuthenticated) router.push("/");
-//   }, [isAuthenticated]);
-//   return (
-//     <div className="px-4 pt-14 py-6 md:px-8 lg:px-16">
-//             { resume && 
-//             <StudentResume  />
-//             }
-//     </div>
-//   );
-// };
-// export default showResume;
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -1002,7 +967,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [3587,8995,1440,2866,2451,4754,8468,6311,466,6229], () => (__webpack_exec__(61227)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,8995,6648,2451,4754,8468,6311,466,6229], () => (__webpack_exec__(61227)));
 module.exports = __webpack_exports__;
 
 })();

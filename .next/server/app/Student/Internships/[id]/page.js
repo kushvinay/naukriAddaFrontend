@@ -443,7 +443,7 @@ const Page = ({ params })=>{
     const internship = internships.find((e)=>params.id == e._id);
     console.log(internship.usersapplied);
     // let che = internship.usersapplied.include(student._id);
-    console.log(student._id);
+    // console.log(student._id)
     console.log(internship.usersapplied);
     let che = internship.usersapplied.includes(student._id);
     console.log(che);
@@ -700,7 +700,7 @@ const ForwardRef = react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(MapPinIcon);
 var __webpack_require__ = require("../../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [3587,8995,1440,2866,4731,8468,6311,466,6229], () => (__webpack_exec__(87052)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,8995,6648,4731,8468,6311,466,6229], () => (__webpack_exec__(87052)));
 module.exports = __webpack_exports__;
 
 })();

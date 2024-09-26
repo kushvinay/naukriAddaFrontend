@@ -37,7 +37,7 @@ function SampleArrow(props) {
         children: "X"
     });
 }
-const Responsivejob = ({ data })=>{
+const Responsivejob = ({ data, student })=>{
     const settings = {
         dots: true,
         infinite: false,
@@ -90,9 +90,9 @@ const Responsivejob = ({ data })=>{
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_slick__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                 className: "ps-3",
                 ...settings,
-                children: data.map((internship)=>// <CarouselComp data={internship}/>
-                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Card__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
-                        data: internship
+                children: data.map((internship)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_Card__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {
+                        data: internship,
+                        student: student
                     }, internship._id))
             })
         ]

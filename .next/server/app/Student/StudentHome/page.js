@@ -433,144 +433,29 @@ const routeModule = new AppPageRouteModule({
 /***/ 62607:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 87988))
+Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 57094))
 
 /***/ }),
 
-/***/ 87988:
+/***/ 57094:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ page)
-});
-
-// EXTERNAL MODULE: external "next/dist/compiled/react/jsx-runtime"
-var jsx_runtime_ = __webpack_require__(56786);
-// EXTERNAL MODULE: external "next/dist/compiled/react"
-var react_ = __webpack_require__(18038);
-// EXTERNAL MODULE: ./node_modules/react-slick/lib/index.js
-var lib = __webpack_require__(22723);
-// EXTERNAL MODULE: ./src/app/components/intershipCard.js
-var intershipCard = __webpack_require__(80005);
-;// CONCATENATED MODULE: ./src/app/components/slick.js
-/* __next_internal_client_entry_do_not_use__ default auto */ 
-
-
-const CustomArrow = ({ className, onClick })=>/*#__PURE__*/ _jsx("button", {
-        className: className,
-        onClick: onClick,
-        children: /*#__PURE__*/ _jsx("span", {
-            className: "text-black",
-            children: "x"
-        })
-    });
-function SampleArrow(props) {
-    const { className, style, onClick } = props;
-    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: className,
-        style: {
-            ...style,
-            display: "block",
-            background: "#cdddf4",
-            borderRadius: "50%",
-            color: "white",
-            paddingTop: "1px"
-        },
-        onClick: onClick,
-        children: "X"
-    });
-}
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: className,
-        style: {
-            ...style,
-            background: "#cdddf4",
-            borderRadius: "50%",
-            color: "white",
-            paddingTop: "1px"
-        },
-        onClick: onClick,
-        children: "X"
-    });
-}
-const Responsive = ({ data })=>{
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        prevArrow: /*#__PURE__*/ jsx_runtime_.jsx(SamplePrevArrow, {}),
-        nextArrow: /*#__PURE__*/ jsx_runtime_.jsx(SampleArrow, {}),
-        responsive: [
-            {
-                breakpoint: 1055,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    initialSlide: 2
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        children: [
-            /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                rel: "stylesheet",
-                type: "text/css",
-                charset: "UTF-8",
-                href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx("link", {
-                rel: "stylesheet",
-                type: "text/css",
-                href: "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-            }),
-            /*#__PURE__*/ jsx_runtime_.jsx(lib/* default */.Z, {
-                className: "ps-3",
-                ...settings,
-                children: data.map((internship)=>/*#__PURE__*/ jsx_runtime_.jsx(intershipCard/* default */.Z, {
-                        data: internship
-                    }, internship._id))
-            })
-        ]
-    });
-};
-/* harmony default export */ const slick = (Responsive);
-
-// EXTERNAL MODULE: ./src/app/components/Name.js
-var Name = __webpack_require__(88654);
-// EXTERNAL MODULE: ./src/app/components/jobslick.js
-var jobslick = __webpack_require__(93506);
-// EXTERNAL MODULE: ./node_modules/react-redux/lib/index.js
-var react_redux_lib = __webpack_require__(8250);
-// EXTERNAL MODULE: ./node_modules/next/navigation.js
-var navigation = __webpack_require__(57114);
-;// CONCATENATED MODULE: ./src/app/Student/StudentHome/page.js
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(56786);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18038);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _app_components_slick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(20405);
+/* harmony import */ var _app_components_Name__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(88654);
+/* harmony import */ var _app_components_jobslick__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(93506);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8250);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var next_navigation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(57114);
+/* harmony import */ var next_navigation__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_navigation__WEBPACK_IMPORTED_MODULE_6__);
 /* __next_internal_client_entry_do_not_use__ default auto */ 
 
 
@@ -602,12 +487,12 @@ const BreakpointSlides = {
     }
 };
 const Page = ()=>{
-    const router = (0,navigation.useRouter)();
-    const dispatch = (0,react_redux_lib.useDispatch)();
+    const router = (0,next_navigation__WEBPACK_IMPORTED_MODULE_6__.useRouter)();
+    const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useDispatch)();
     const fatchin = async ()=>{
         await dispatch(setjobs());
     };
-    let { isAuthenticated, jobs, internships } = (0,react_redux_lib.useSelector)((state)=>state.StudentSlice);
+    let { isAuthenticated, jobs, internships } = (0,react_redux__WEBPACK_IMPORTED_MODULE_5__.useSelector)((state)=>state.StudentSlice);
     let Internships = [];
     if (internships != null) {
         Internships = internships.slice(0, 5);
@@ -616,38 +501,38 @@ const Page = ()=>{
     if (jobs != null) {
         Jobs = jobs.slice(0, 5);
     }
-    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+    return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "text-center p-6 md:p-10 bg-white",
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx(Name/* default */.Z, {}),
-            /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_components_Name__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z, {}),
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h2", {
                 className: "text-lg md:text-xl text-gray-600 py-4 md:py-5",
                 children: "Let’s help you find your dream career"
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("h1", {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
                 className: "text-2xl md:text-3xl font-semibold my-3 md:my-4",
                 children: "Internships"
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "w-full max-w-[95%] md:max-w-[1150px] mx-auto",
-                children: /*#__PURE__*/ jsx_runtime_.jsx(slick, {
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_components_slick__WEBPACK_IMPORTED_MODULE_2__/* ["default"] */ .Z, {
                     data: Internships
                 })
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("h1", {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
                 className: "text-2xl md:text-3xl font-semibold mt-12 md:mt-20 pb-3 md:pb-4",
                 children: "Jobs"
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+            /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 className: "w-full max-w-[95%] md:max-w-[1150px] mx-auto",
-                children: /*#__PURE__*/ jsx_runtime_.jsx(jobslick/* default */.Z, {
+                children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_components_jobslick__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
                     data: Jobs
                 })
             })
         ]
     });
 };
-/* harmony default export */ const page = (Page);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Page);
 
 
 /***/ }),
@@ -716,7 +601,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [3587,8995,1440,2866,2451,1684,2723,8468,6311,466,6229,7578,5,3506], () => (__webpack_exec__(36455)));
+var __webpack_exports__ = __webpack_require__.X(0, [3587,8995,6648,2451,1684,2723,8468,6311,466,6229,7578,5,3506,405], () => (__webpack_exec__(36455)));
 module.exports = __webpack_exports__;
 
 })();

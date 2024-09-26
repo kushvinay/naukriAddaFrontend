@@ -20,7 +20,7 @@ function SampleArrow(props) {
 }
   
 
-const Responsivejob = ({data}) => {
+const Responsivejob = ({data , student}) => {
   const settings = {
     dots: true,
     infinite: false,
@@ -75,25 +75,10 @@ const Responsivejob = ({data}) => {
         
 
       {data.map((internship) => (
-          // <CarouselComp data={internship}/>
-          <Card key={internship._id} data={internship}/>
+         
+          <Card key={internship._id} data={internship} student={student}  />
           
-          // <div className=" max-w-[200px] border border-gray-50 hover:border-gray-200  hover:shadow-lg mx-5 text-start w-44">
-          //   <Link
-          //     href="/"
-          //     className=" max-w-[200px] border border-gray-50 hover:border-gray-200  hover:shadow-lg  "
-          //   >
-          //     <div>
-          //       <h4 className=" text-lg text-black">{internship.profile}</h4>
-          //       <p>ED Tech</p>
-          //     </div>
-          //     <div>
-          //       <p>pune</p>
-          //       <h6>{internship.ducation}</h6>
-          //       <h6>150 rs dega</h6>
-          //     </div>
-          //   </Link>
-          // </div>
+         
         ))}
        
       </Slider>

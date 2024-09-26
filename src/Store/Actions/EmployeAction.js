@@ -22,9 +22,11 @@ export const asyncRemoveEmploye = () => async (dispatch, getState) => {
     const response = await axios.get("/employe/signout" ,{
       withCredentials:true,
     });
-    console.log(response)
+    dispatch(SetEmploye(null));
     dispatch(RemoveEmploye())
-    return response.data
+
+    localStorage.removeItem("token");
+    // return response.data
   } catch (error) {
     console.log(error);
     // dispatch(iserror(error.response.data.message));

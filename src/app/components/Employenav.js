@@ -38,12 +38,14 @@ const Employenav = () => {
   };
 
   const employesignout = async () => {
-    const res = await dispatch(asyncRemoveEmploye());
-    console.log(res);
-
-    if (res.success) {
+    try {
+      const res = await dispatch(asyncRemoveEmploye());
+    
       router.push("/");
+    } catch (error) {
+      console.error("An error occurred during logout: ", error);
     }
+    
   };
 
   return (

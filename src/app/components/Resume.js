@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+
 const Resume = ({ key, data }) => {
-  console.log(`data from resume ${data}`);
+  // console.log(`data from resume ${data}`);
+  console.log(data)
   return (
     <div key={key} className="max-w-[900px] m-auto scroll-non">
       <h1 className="text-3xl text-center py-5 font-medium text-gray-700 mb-11">
@@ -12,7 +14,7 @@ const Resume = ({ key, data }) => {
       <div className="w-full h-52 border-[1px] border-inherit px-16 py-7 flex justify-between">
         <div>
           <h3 className="text-2xl font-semibold pb-1 ">
-            {data.fullname} 
+            {data.fullname}
           </h3>
           <h4 className="text-gray-500 text-sm pb-1">{data.email} </h4>
           <h4 className="text-gray-500 text-sm pb-1">+91-{data.contact} </h4>
@@ -135,7 +137,10 @@ const Resume = ({ key, data }) => {
           <h4 className="w-[25%] text-gray-500 text-sm">SKILLS</h4>
           <ul>
             {data.resume.skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
+              // Assuming skill object has 'skill' and 'level' properties
+              <li key={index}>
+                {skill.skill} - Level: {skill.level}
+              </li>
             ))}
           </ul>
         </div>
@@ -146,19 +151,22 @@ const Resume = ({ key, data }) => {
           <h4 className="w-[25%] text-gray-500 text-sm">
             ACCOMPLISHMENT/<br />ADDITIONAL DETAILS
           </h4>
-          {data.resume.accomplishments.map((accomplishment, index) => (
-            <ul key={index}>
-              <li>{accomplishment}</li>
-            </ul>
-          ))}
+          <ul>
+            {data.resume.accomplishments.map((accomplishment, index) => (
+              <li key={index}>{accomplishment.description}</li>
+            ))}
+          </ul>
           <div className="text-sky-500">
             <button>+ Add Accomplishments/ Additional Details</button>
           </div>
         </div>
       )}
+
+
     </div>
+
   );
 };
 
-export default Resume;
 
+export default Resume;

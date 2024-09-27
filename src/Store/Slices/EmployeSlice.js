@@ -20,7 +20,7 @@ export const EmployeSlice = createSlice({
       state.isLoading = false;
       state.employe = action.payload;
       state.error = null;
-      console.log(`action ${action.payload}`);
+      // console.log(`action ${action.payload}`);
     },
     RemoveEmploye: (state, action) => {
       state = {

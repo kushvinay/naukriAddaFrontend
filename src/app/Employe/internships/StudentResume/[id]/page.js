@@ -27,9 +27,9 @@ const StudentResume = ({params}) => {
   return ( 
   <div className=" flex flex-wrap py-8 px-16 ">
     {resumes &&
-    resumes.map((resume) => (
-      <div key={resume._id} >
-        <ResumeCard data={resume}/>
+    resumes.map((resume ,index) => (
+      <div>
+        <ResumeCard data={resume}  key={resume._id}/>
       </div>
     ))
     }

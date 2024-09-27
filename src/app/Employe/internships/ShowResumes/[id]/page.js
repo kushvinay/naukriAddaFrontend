@@ -1,6 +1,6 @@
 "use client";
 import EmployeInternpage from "@/app/components/EmployeInternpage";
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import Resume from "@/app/components/Resume";
 import {
@@ -16,7 +16,7 @@ const ShoResume = ({ params }) => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      dispatch(asyncCurrentEmployee());
+      dispatch(asyncCurrentEmploye());
     }
     if (!isAuthenticated) router.push("/");
   }, [isAuthenticated]);

@@ -19,7 +19,8 @@ exports.modules = {
 
 
 const Resume = ({ key, data })=>{
-    console.log(`data from resume ${data}`);
+    // console.log(`data from resume ${data}`);
+    console.log(data);
     return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
         className: "max-w-[900px] m-auto scroll-non",
         children: [
@@ -298,8 +299,13 @@ const Resume = ({ key, data })=>{
                         children: "SKILLS"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
-                        children: data.resume.skills.map((skill, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
-                                children: skill
+                        children: data.resume.skills.map((skill, index)=>// Assuming skill object has 'skill' and 'level' properties
+                            /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("li", {
+                                children: [
+                                    skill.skill,
+                                    " - Level: ",
+                                    skill.level
+                                ]
                             }, index))
                     })
                 ]
@@ -315,11 +321,11 @@ const Resume = ({ key, data })=>{
                             "ADDITIONAL DETAILS"
                         ]
                     }),
-                    data.resume.accomplishments.map((accomplishment, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
-                            children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
-                                children: accomplishment
-                            })
-                        }, index)),
+                    /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("ul", {
+                        children: data.resume.accomplishments.map((accomplishment, index)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
+                                children: accomplishment.description
+                            }, index))
+                    }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                         className: "text-sky-500",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {

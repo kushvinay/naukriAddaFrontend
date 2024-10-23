@@ -64,9 +64,10 @@ const asyncRemoveEmploye = ()=>async (dispatch, getState)=>{
             const response = await _axiosconfig__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z.get("/employe/signout", {
                 withCredentials: true
             });
-            console.log(response);
+            dispatch((0,_Slices_EmployeSlice__WEBPACK_IMPORTED_MODULE_3__/* .SetEmploye */ .m4)(null));
             dispatch((0,_Slices_EmployeSlice__WEBPACK_IMPORTED_MODULE_3__/* .RemoveEmploye */ .oY)());
-            return response.data;
+            localStorage.removeItem("token");
+        // return response.data
         } catch (error) {
             console.log(error);
         // dispatch(iserror(error.response.data.message));

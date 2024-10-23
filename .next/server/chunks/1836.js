@@ -65,10 +65,11 @@ const Employenav = ()=>{
         setProfileDropdown(!profileDropdown);
     };
     const employesignout = async ()=>{
-        const res = await dispatch((0,EmployeAction/* asyncRemoveEmploye */.qL)());
-        console.log(res);
-        if (res.success) {
+        try {
+            const res = await dispatch((0,EmployeAction/* asyncRemoveEmploye */.qL)());
             router.push("/");
+        } catch (error) {
+            console.error("An error occurred during logout: ", error);
         }
     };
     return /*#__PURE__*/ jsx_runtime_.jsx("nav", {

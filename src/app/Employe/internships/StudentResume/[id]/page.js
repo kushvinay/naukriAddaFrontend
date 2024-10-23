@@ -5,35 +5,35 @@ import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import ResumeCard from "@/app/components/ResumeCard";
 
-const StudentResume = ({params}) => {
+const StudentResume = ({ params }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { isAuthenticated, employe ,resumes } = useSelector(
+  const { isAuthenticated, employe, resumes } = useSelector(
     (state) => state.EmployeSlice
   );
-  const fatchResume = () => {
-    dispatch(asyncSetResumes(params.id))
-  }
+
+  const fetchResume = () => {
+    dispatch(asyncSetResumes(params.id));
+  };
 
   useEffect(() => {
-    fatchResume();
-  },[]);
+    fetchResume();
+  }, []); // Consider adding dependencies if needed
 
   useEffect(() => {
     if (!isAuthenticated) dispatch(asyncCurrentEmploye());
     if (!isAuthenticated) router.push("/");
-  }, [isAuthenticated]);
-  console.log(resumes)
-  return ( 
-  <div className=" flex flex-wrap py-8 px-16 ">
-    {resumes &&
-    resumes.map((resume ,index) => (
-      <div>
-        <ResumeCard data={resume}  key={resume._id}/>
-      </div>
-    ))
-    }
-  </div>
+  }, [isAuthenticated, router, dispatch]); // Ensure you include `router` and `dispatch` in the dependencies
+
+  return (
+    <div className="flex flex-wrap py-8 px-16">
+      {resumes &&
+        resumes.map((resume) => (
+          <div key={resume._id}>
+            <ResumeCard data={resume} />
+          </div>
+        ))}
+    </div>
   );
 };
 

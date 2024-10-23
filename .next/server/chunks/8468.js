@@ -85,7 +85,7 @@ const EmployeSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlic
             state.isLoading = false;
             state.employe = action.payload;
             state.error = null;
-            console.log(`action ${action.payload}`);
+        // console.log(`action ${action.payload}`);
         },
         RemoveEmploye: (state, action)=>{
             state = {

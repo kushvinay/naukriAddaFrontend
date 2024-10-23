@@ -494,6 +494,9 @@ const StudentResume = ()=>{
     const downloadPDF = ()=>{
         if (true) return;
         setIsGeneratingPDF(true);
+        // Hide the button by adding a class or style temporarily
+        const downloadButton = document.getElementById("downloadButton");
+        if (downloadButton) downloadButton.style.display = "none";
         const pdf = new jspdf_node_min/* jsPDF */.kH("p", "mm", "a4");
         const pageHeight = pdf.internal.pageSize.getHeight();
         const pageWidth = pdf.internal.pageSize.getWidth();
@@ -517,6 +520,8 @@ const StudentResume = ()=>{
                 pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
             }
+            // Restore the button visibility
+            if (downloadButton) downloadButton.style.display = "block";
             pdf.save("resume.pdf");
             setIsGeneratingPDF(false);
         });

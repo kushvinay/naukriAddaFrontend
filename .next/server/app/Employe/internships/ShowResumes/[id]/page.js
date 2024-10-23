@@ -442,7 +442,7 @@ const ShoResume = ({ params })=>{
     const { isAuthenticated, employe, resumes } = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)((state)=>state.EmployeSlice);
     (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{
         if (!isAuthenticated) {
-            dispatch(asyncCurrentEmployee());
+            dispatch((0,_Store_Actions_EmployeAction__WEBPACK_IMPORTED_MODULE_4__/* .asyncCurrentEmploye */ .eY)());
         }
         if (!isAuthenticated) router.push("/");
     }, [

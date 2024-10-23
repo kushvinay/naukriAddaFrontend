@@ -483,21 +483,22 @@ const StudentResume = ({ params })=>{
     const router = (0,next_navigation__WEBPACK_IMPORTED_MODULE_3__.useRouter)();
     const dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useDispatch)();
     const { isAuthenticated, employe, resumes } = (0,react_redux__WEBPACK_IMPORTED_MODULE_4__.useSelector)((state)=>state.EmployeSlice);
-    const fatchResume = ()=>{
+    const fetchResume = ()=>{
         dispatch((0,_Store_Actions_EmployeAction__WEBPACK_IMPORTED_MODULE_2__/* .asyncSetResumes */ .xp)(params.id));
     };
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
-        fatchResume();
-    }, []);
+        fetchResume();
+    }, []); // Consider adding dependencies if needed
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         if (!isAuthenticated) dispatch((0,_Store_Actions_EmployeAction__WEBPACK_IMPORTED_MODULE_2__/* .asyncCurrentEmploye */ .eY)());
         if (!isAuthenticated) router.push("/");
     }, [
-        isAuthenticated
-    ]);
-    console.log(resumes);
+        isAuthenticated,
+        router,
+        dispatch
+    ]); // Ensure you include `router` and `dispatch` in the dependencies
     return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-        className: " flex flex-wrap py-8 px-16 ",
+        className: "flex flex-wrap py-8 px-16",
         children: resumes && resumes.map((resume)=>/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_app_components_ResumeCard__WEBPACK_IMPORTED_MODULE_5__/* ["default"] */ .Z, {
                     data: resume

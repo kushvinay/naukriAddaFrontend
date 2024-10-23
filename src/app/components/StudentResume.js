@@ -10,7 +10,7 @@ const StudentResume = () => {
   const [showButton, setShowButton] = useState(
     typeof window !== "undefined" && window.innerWidth > 880
   );
-  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false); 
+  const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
   const resumeRef = useRef(null);
 
   useEffect(() => {
@@ -32,6 +32,10 @@ const StudentResume = () => {
   const downloadPDF = () => {
     if (typeof window === "undefined" || !resumeRef.current) return;
     setIsGeneratingPDF(true);
+
+    // Hide the button by adding a class or style temporarily
+    const downloadButton = document.getElementById("downloadButton");
+    if (downloadButton) downloadButton.style.display = "none";
 
     const pdf = new jsPDF("p", "mm", "a4");
     const pageHeight = pdf.internal.pageSize.getHeight();
@@ -60,6 +64,10 @@ const StudentResume = () => {
         pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
         heightLeft -= pageHeight;
       }
+
+      // Restore the button visibility
+      if (downloadButton) downloadButton.style.display = "block";
+
       pdf.save("resume.pdf");
       setIsGeneratingPDF(false);
     });

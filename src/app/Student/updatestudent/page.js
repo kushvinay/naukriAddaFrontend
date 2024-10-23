@@ -216,3 +216,39 @@ const Updatestudent = () => {
 };
 
 export default Updatestudent;
+
+
+
+// "use client";
+// import React, { useEffect, useState } from "react";
+// import { asynupdatestudent } from "@/Store/Actions/StudentActions";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useRouter } from "next/navigation";
+
+// const Updatestudent = () => {
+//   const router = useRouter();
+//   const dispatch = useDispatch();
+//   const { isAuthenticated, student } = useSelector((state) => state.StudentSlice);
+  
+//   const [fullname, setFullname] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [contact, setContact] = useState("");
+//   const [gender, setGender] = useState("");
+
+//   const handleUpdate = (e) => {
+//     e.preventDefault();
+//     const updateStudentInfo = {};
+
+//     if (fullname.trim() !== '') updateStudentInfo.fullname = fullname;
+//     if (gender.trim() !== '' && gender.trim() !== "Select gender") updateStudentInfo.gender = gender;
+//     if (email.trim() !== '') updateStudentInfo.email = email;
+//     if (contact.trim() !== '') updateStudentInfo.contact = contact;
+
+//     dispatch(asynupdatestudent(updateStudentInfo)).then(() => {
+//       router.push("/Student/StudentHome");
+//     });
+//   };
+
+//   useEffect(() => {
+//     if (!isAuthenticated) router.push("/Studentlogin");
+//   }, [isAuthenticated]);
